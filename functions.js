@@ -3,13 +3,19 @@ __ajax("data.json")
 .done(function(usuarios){
 	var html ="";
 	for (var i in usuarios.users) { 
-		html+=	`<img src="${usuarios.users[i].avatar_url}" width="260" height="260" onerror="this.src='images/icono_default.jpg';"></p>
-				<h3>Nombre de usuario:</h3>
-				<p> ${usuarios.users[i].name}</p>
-				<h3>Nickname de usuario:</h3>
-				<p> ${usuarios.users[i].nickName}</p>
-				<h3>URL de Github:</h3>
-				<p><a href="${usuarios.users[i].github_url}">${usuarios.users[i].github_url}</a></p>
+		html+=	`<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="${usuarios.users[i].avatar_url}" alt="profile_pic"
+				width="260" height="260" onerror="this.src='images/icono_default.jpg';">
+				<div class="card-body">
+			    <h5 class="card-title">Ficha Tecnica número ${i}</h5>
+			    <h3>Nombre de usuario:</h3>
+			    <p class="card-text"> ${usuarios.users[i].name}</p>
+			    <h3>Nickname de usuario:</h3>
+			    <p class="card-text"> ${usuarios.users[i].nickName}</p>
+			    <h3>URL de Github:</h3>
+			    <a href="${usuarios.users[i].github_url}" class="btn btn-primary">${usuarios.users[i].github_url}</a>
+			  	</div>
+				</div>
 				<hr>
 				`
 	}
